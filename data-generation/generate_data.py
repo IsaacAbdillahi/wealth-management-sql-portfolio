@@ -1,17 +1,20 @@
 import pandas as pd
 import random
+from datetime import datetime
 
-# Generate Advisers Dataset
-
-advisers = []
+# ------------------------
+# ADVISERS
+# ------------------------
 
 regions = [
-    "North",
-    "South",
-    "Midlands",
     "London",
-    "Scotland"
+    "North West",
+    "Midlands",
+    "Scotland",
+    "South East"
 ]
+
+advisers = []
 
 for adviser_id in range(1, 21):
     advisers.append({
@@ -22,4 +25,7 @@ for adviser_id in range(1, 21):
 
 advisers_df = pd.DataFrame(advisers)
 
-print(advisers_df.head())
+# Save CSV
+advisers_df.to_csv("../datasets/advisers.csv", index=False)
+
+print("Advisers generated.")
